@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = 20f;
-    [SerializeField] float _maxDistanceDelta = 20f;
     
     Vector2 moveInputValue;
 
@@ -38,6 +37,5 @@ public class PlayerController : MonoBehaviour
     void ReadInput()
     {
         moveInputValue = moveAction.ReadValue<Vector2>();
-        moveInputValue = Vector2.ClampMagnitude(moveInputValue, 1f);
     }
 }

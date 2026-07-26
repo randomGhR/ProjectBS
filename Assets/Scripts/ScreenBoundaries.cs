@@ -16,6 +16,12 @@ public class ScreenBoundaries : MonoBehaviour
     [SerializeField] BoxCollider2D _bottomCollider;
     [SerializeField] BoxCollider2D _leftCollider;
 
+    [Header("Sprites")]
+    [SerializeField] SpriteRenderer _topSprite;
+    [SerializeField] SpriteRenderer _rightSprite;
+    [SerializeField] SpriteRenderer _bottomSprite;
+    [SerializeField] SpriteRenderer _leftSprite;
+
     [Header("Parameters")]
     [SerializeField] float _boundaryOffset = 0f;
     [SerializeField] float _overLapOffset = 0f;
@@ -55,7 +61,7 @@ public class ScreenBoundaries : MonoBehaviour
         _topCollider.transform.position =
             new Vector2(
                 topEdgeCenter.x,
-                topEdgeCenter.y + (_colliderThickness / 2) + _boundaryOffset
+                topEdgeCenter.y - (_colliderThickness / 2) - _boundaryOffset
                 );
 
         _bottomCollider.size = 
@@ -66,7 +72,7 @@ public class ScreenBoundaries : MonoBehaviour
         _bottomCollider.transform.position =
             new Vector2(
                 bottomEdgeCenter.x,
-                bottomEdgeCenter.y - (_colliderThickness / 2) - _boundaryOffset
+                bottomEdgeCenter.y + (_colliderThickness / 2) + _boundaryOffset
                 );
         
         _rightCollider.size = 
@@ -76,7 +82,7 @@ public class ScreenBoundaries : MonoBehaviour
                 );
         _rightCollider.transform.position =
             new Vector2 (
-                rightEdgeCenter.x  + (_colliderThickness / 2) + _boundaryOffset,
+                rightEdgeCenter.x  - (_colliderThickness / 2) - _boundaryOffset,
                 rightEdgeCenter.y
                 );
         
@@ -87,9 +93,34 @@ public class ScreenBoundaries : MonoBehaviour
                 );
         _leftCollider.transform.position =
             new Vector2 (
-                leftEdgeCenter.x  - (_colliderThickness / 2) - _boundaryOffset,
+                leftEdgeCenter.x  + (_colliderThickness / 2) + _boundaryOffset,
                 leftEdgeCenter.y
                 );
+
+
+                _topSprite.transform.localScale = new Vector3(
+            _topCollider.size.x,
+            _topCollider.size.y,
+            1
+        );
+
+        _bottomSprite.transform.localScale = new Vector3(
+            _bottomCollider.size.x,
+            _bottomCollider.size.y,
+            1
+        );
+
+        _rightSprite.transform.localScale = new Vector3(
+            _rightCollider.size.x,
+            _rightCollider.size.y,
+            1
+        );
+
+        _leftSprite.transform.localScale = new Vector3(
+            _leftCollider.size.x,
+            _leftCollider.size.y,
+            1
+        );
     }
 
     Vector2 GetCameraEdgeCenter(ScreenEdge edge)

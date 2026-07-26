@@ -6,14 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = 20f;
     
-    Vector2 moveInputValue;
+    Vector2 _moveInputValue;
 
-    InputAction moveAction;
+    InputAction _moveAction;
     Rigidbody2D rb;
 
     void Awake()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
+        _moveAction = InputSystem.actions.FindAction("Move");
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -27,15 +27,15 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
     }
-
+    
     void MovePlayer()
     {  
-        Vector2 moveAmount = moveInputValue * _moveSpeed;
+        Vector2 moveAmount = _moveInputValue * _moveSpeed;
         rb.linearVelocity = moveAmount;
     }
 
     void ReadInput()
     {
-        moveInputValue = moveAction.ReadValue<Vector2>();
+        _moveInputValue = _moveAction.ReadValue<Vector2>();
     }
 }

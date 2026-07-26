@@ -2,8 +2,9 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -11,12 +12,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Weapon
+  - Wall
+  - Obstacle
+  - Bullet
   - 
   - 
   - 
@@ -41,3 +42,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bullet
+    uniqueID: 2302803749
+    locked: 0
+  - name: Weapon
+    uniqueID: 228550269
+    locked: 0
+  m_RenderingLayers:
+  - Default

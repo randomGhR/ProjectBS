@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1546698727115358337}
   - component: {fileID: 5480464022337149988}
+  - component: {fileID: 5050091395731788471}
+  - component: {fileID: 3036884330697643412}
   m_Layer: 11
   m_Name: Bullet
   m_TagString: Bullet
@@ -46,6 +48,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   _speed: 10
+--- !u!114 &5050091395731788471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018609387809419962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf0455c50e954c4085ed5fefe4220aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletHitManager
+  isSafe: 0
+  _safeTime: 1
+--- !u!58 &3036884330697643412
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018609387809419962}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &6162795340216596293
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +110,7 @@ GameObject:
   - component: {fileID: 5122234795286831632}
   - component: {fileID: 7833077792799946140}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Bullet Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +181,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9811321, g: 0.95330995, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.06779262, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -218,8 +270,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0.6392157}
-      key1: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0.15686275}
+      key0: {r: 1, g: 0.07058824, b: 0, a: 1}
+      key1: {r: 1, g: 0.07058824, b: 0, a: 1}
       key2: {r: 1, g: 1, b: 1, a: 0.44705883}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

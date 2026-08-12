@@ -16,15 +16,13 @@ public class Health : MonoBehaviour
         return _currentHealth;
     } 
 
-    public int ReduceHealth(int amount)
+    public void ReduceHealth(int amount)
     {
         _currentHealth -= amount;
-        return _currentHealth;
     }
 
-    public int AddHealth(int amount)
+    public void AddHealth(int amount)
     {
         _currentHealth += amount;
-        return _currentHealth;
     }
 }

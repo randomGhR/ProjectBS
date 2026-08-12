@@ -14,12 +14,15 @@ public class BulletSpawner : MonoBehaviour
     private InputAction _shootAction;
     private bool _shootActionIsPressed;
 
+
+    private int _debugBulletCounter = 0;
     
 
     void Awake()
     {
         _shootAction = InputSystem.actions.FindAction("Attack");
         _fireCooldown = 1f / _fireRate;
+        _canFire = true;
     }
 
     void Update()
@@ -60,6 +63,10 @@ public class BulletSpawner : MonoBehaviour
                 rotation: transform.rotation
                 );
         }
+      
+        _debugBulletCounter++;
+        Debug.Log(_debugBulletCounter);
+        
     }
 
     private void ReadInput()

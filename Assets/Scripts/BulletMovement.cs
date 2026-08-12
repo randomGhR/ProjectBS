@@ -45,5 +45,4 @@ public class BulletMovement : MonoBehaviour
         return rayHit;
     }
 
-
 }

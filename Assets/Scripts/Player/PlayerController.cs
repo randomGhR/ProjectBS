@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     
     void MovePlayer()
     {  
-        Vector2 moveAmount = _moveInputValue * _moveSpeed;
+        Vector2 moveAmount = _moveInputValue.normalized * _moveSpeed;
         rb.linearVelocity = moveAmount;
     }
 

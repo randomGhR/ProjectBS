@@ -62,11 +62,12 @@ public class BulletSpawner : MonoBehaviour
                 position: transform.position,
                 rotation: transform.rotation
                 );
-        }
+
+            _debugBulletCounter++;
+            Debug.Log("Bullet Count: " + _debugBulletCounter);
       
-        _debugBulletCounter++;
-        Debug.Log(_debugBulletCounter);
-        
+            
+        }
     }
 
     private void ReadInput()

@@ -2,21 +2,20 @@ using UnityEngine;
 
 public class BulletHitManager : MonoBehaviour
 {
-    [HideInInspector] public bool isSafe;
+    [HideInInspector] public bool IsSafe {get; private set;}
     
     [SerializeField] private float _safeTime = 1f;
 
     private void Awake()
     {
-        isSafe = true;
-
+        IsSafe = true;
     }
 
     private void Update()
     {
         if (_safeTime <= 0)
         {
-            isSafe = false;
+            IsSafe = false;
         }
         else
         {

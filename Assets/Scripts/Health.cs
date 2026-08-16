@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -19,10 +20,26 @@ public class Health : MonoBehaviour
     public void ReduceHealth(int amount)
     {
         _currentHealth -= amount;
+
+        Debug.Log(gameObject + "Health: " + _currentHealth);
+
+        if (_currentHealth <= 0)
+        {
+            if (gameObject.CompareTag("Player"))
+            {
+                SceneManager.LoadScene(0);
+            }
+            Die();
+        }
     }
 
     public void AddHealth(int amount)
     {
         _currentHealth += amount;
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

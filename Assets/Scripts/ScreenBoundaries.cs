@@ -27,19 +27,19 @@ public class ScreenBoundaries : MonoBehaviour
     [SerializeField] float _overLapOffset = 0f;
     [SerializeField] float _colliderThickness = 4f;
 
-    Camera _camera;
+    private Camera _camera;
 
-    void Awake()
+    private void Awake()
     {
         _camera = Camera.main;
     }
 
-    void Update()
+    private void Update()
     {
         SetColliders();
     }
 
-    void SetColliders()
+    private void SetColliders()
     {
         Vector2 topEdgeCenter = GetCameraEdgeCenter(ScreenEdge.Top);
         Vector2 bottomEdgeCenter = GetCameraEdgeCenter(ScreenEdge.Bottom);
@@ -123,7 +123,7 @@ public class ScreenBoundaries : MonoBehaviour
         );
     }
 
-    Vector2 GetCameraEdgeCenter(ScreenEdge edge)
+    private Vector2 GetCameraEdgeCenter(ScreenEdge edge)
     {
         Vector2 cameraHalfDim = GetCameraHalfDimensions();
         Vector2 center = _camera.transform.position;

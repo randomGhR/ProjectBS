@@ -35,10 +35,12 @@ public class BulletSpawner : MonoBehaviour
     {
         if (_canFire)
         {
-            InstantiateBullet();
-            
-            _canFire = false;
-            _timer = _fireCooldown;
+            if (_shootActionIsPressed)
+            {
+                InstantiateBullet();
+                _canFire = false;
+                _timer = _fireCooldown;
+            }
         }
         else
         {
@@ -55,19 +57,11 @@ public class BulletSpawner : MonoBehaviour
 
     private void InstantiateBullet()
     {
-        if (_shootActionIsPressed)
-        {
             Instantiate(
                 original: _bulletPrefab,
                 position: transform.position,
                 rotation: transform.rotation
                 );
-
-            _debugBulletCounter++;
-            Debug.Log("Bullet Count: " + _debugBulletCounter);
-      
-            
-        }
     }
 
     private void ReadInput()

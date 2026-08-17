@@ -21,7 +21,10 @@ public class Health : MonoBehaviour
     {
         _currentHealth -= amount;
 
-        Debug.Log(gameObject + "Health: " + _currentHealth);
+        if (gameObject.CompareTag("Player"))
+        {
+            Debug.Log(gameObject + "Health: " + _currentHealth);    
+        }
 
         if (_currentHealth <= 0)
         {

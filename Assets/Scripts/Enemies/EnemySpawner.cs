@@ -5,16 +5,20 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] _enemyPrefabs;
     [SerializeField] private float _spawnRate = 0.2f;
     [SerializeField] private float _spawnRateVariance = 0.2f;
+    [SerializeField] private float _startDelay = 0f;
 
     private float _timer = 0f;
-    private bool _canSpawn = true;
+
+    private void Start()
+    {
+        _timer = _startDelay;
+    }
 
     private void Update()
     {
         if (_timer > 0f)
         {
             _timer -= Time.deltaTime;
-            _canSpawn = false;
         }
         else
         {

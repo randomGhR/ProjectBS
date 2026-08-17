@@ -1,12 +1,12 @@
-using System.Security.Cryptography;
-using UnityEditor.Callbacks;
-using UnityEditor.VisionOS;
+using Unity.Mathematics;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1f;
+    
+    //[SerializeField] private float _rotationSpeed = 20f;
 
     private Rigidbody2D rb;
     private GameObject _player;
@@ -26,6 +26,8 @@ public class EnemyMovement : MonoBehaviour
         if (_player != null)
         {
             LookAtObject(_player);
+
+            //RotateTowardsObject(_player);
         }
     }
 
@@ -38,6 +40,24 @@ public class EnemyMovement : MonoBehaviour
     {
         rb.linearVelocity = transform.up * _moveSpeed;
     }
+
+    //Smooth Rotation
+
+    // private void RotateTowardsObject(GameObject target)
+    // {
+    //     transform.rotation = 
+    //     Quaternion.RotateTowards(
+    //         transform.rotation, 
+    //         CalculateRotationToTarget(target.transform.position), 
+    //         _rotationSpeed * Time.deltaTime);
+    // }
+    // private quaternion CalculateRotationToTarget(Vector2 target)
+    // {
+    //     Vector2 targetDirection = target - (Vector2) transform.position;
+    //     float angle = Vector2.SignedAngle(Vector2.up, targetDirection);
+    //     Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
+    //     return targetRotation;
+    // }
 
     private void LookAtObject(GameObject target)
     {

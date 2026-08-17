@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1546698727115358337}
   - component: {fileID: 5480464022337149988}
   - component: {fileID: 6113723309335154885}
+  - component: {fileID: -4724118108354376373}
   - component: {fileID: 3036884330697643412}
   m_Layer: 11
   m_Name: Bullet
@@ -61,6 +62,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   _intialDamageAmount: 10
+--- !u!114 &-4724118108354376373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018609387809419962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ce3ae315b97b4db7bcbb29b8b80b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletLifecycle
+  _lifeLengthInSeconds: 10
 --- !u!58 &3036884330697643412
 CircleCollider2D:
   m_ObjectHideFlags: 0

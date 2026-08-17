@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
@@ -6,12 +5,12 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private float _speed = 30f;
 
     private Vector2 _velocity;
-    private int _wallLayerMask;
+    private int _collisionLayerMask;
     private float _dt;
 
     private void Awake()
     {
-        _wallLayerMask = LayerMask.GetMask("Wall");
+        _collisionLayerMask = LayerMask.GetMask("Wall", "Obstacle");
         _dt = Time.deltaTime;
         _velocity = transform.right;
     }
@@ -41,7 +40,7 @@ public class BulletMovement : MonoBehaviour
 
     private RaycastHit2D GetRaycastForCollision()
     {
-        RaycastHit2D rayHit = Physics2D.Raycast(transform.position, _velocity, _velocity.magnitude, _wallLayerMask);
+        RaycastHit2D rayHit = Physics2D.Raycast(transform.position, _velocity, _velocity.magnitude, _collisionLayerMask);
         return rayHit;
     }
 

@@ -1,16 +1,32 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(SpriteManager))]
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _intitialHealth = 100;
+    [SerializeField] private HealthText _playerHealthUI;
 
     private int _currentHealth;
 
+    [SerializeField] private bool _isPlayer = false;
+
     private void Awake()
     {
-        _currentHealth = _intitialHealth;
+        if (_isPlayer)
+        {
+            _currentHealth = _intitialHealth;
+        }
     }
+    private void Start()
+    {
+        if (_isPlayer && _playerHealthUI != null)
+        {
+            _playerHealthUI.ResetHealth(_intitialHealth);
+            
+        }
+    }
+
 
     public int GetCurrentHealth()
     {
@@ -21,14 +37,16 @@ public class Health : MonoBehaviour
     {
         _currentHealth -= amount;
 
-        if (gameObject.CompareTag("Player"))
+        if (_isPlayer && _playerHealthUI != null)
         {
-            Debug.Log(gameObject + "Health: " + _currentHealth);    
+            GetComponent<SpriteManager>().TurnRed();
+
+            _playerHealthUI.UpdateHealth(_currentHealth);
         }
 
         if (_currentHealth <= 0)
         {
-            if (gameObject.CompareTag("Player"))
+            if (_isPlayer)
             {
                 SceneManager.LoadScene(0);
             }

@@ -11,16 +11,26 @@ public class PlayerController : MonoBehaviour
     InputAction _moveAction;
     Rigidbody2D rb;
 
+    InputAction _quitAction;
+
     void Awake()
     {
         _moveAction = InputSystem.actions.FindAction("Move");
 
+        _quitAction = InputSystem.actions.FindAction("Quit");
+        
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         ReadInput();
+        
+        if (_quitAction.WasPressedThisFrame())
+        {
+            Application.Quit();
+            Debug.Log("quit");
+        }   
     }
 
     void FixedUpdate()

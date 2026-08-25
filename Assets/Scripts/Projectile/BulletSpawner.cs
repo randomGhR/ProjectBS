@@ -14,10 +14,6 @@ public class BulletSpawner : MonoBehaviour
     private InputAction _shootAction;
     private bool _shootActionIsPressed;
 
-
-    private int _debugBulletCounter = 0;
-    
-
     void Awake()
     {
         _shootAction = InputSystem.actions.FindAction("Attack");

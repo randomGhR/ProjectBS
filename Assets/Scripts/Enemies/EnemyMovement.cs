@@ -1,10 +1,12 @@
 using Unity.Mathematics;
 using UnityEngine;
+using Pathfinding;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1f;
+
     
     //[SerializeField] private float _rotationSpeed = 20f;
 

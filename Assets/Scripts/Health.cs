@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
         {
             if (_isPlayer)
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("GameScene");
             }
             Die();
         }

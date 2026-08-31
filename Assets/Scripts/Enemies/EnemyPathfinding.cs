@@ -11,12 +11,11 @@ public class EnemyPathfinding : MonoBehaviour
     {
         _path = GetComponent<AIPath>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        _path.maxSpeed = _moveSpeed;
     } 
 
     private void Update()
     {
-        _path.maxSpeed = _moveSpeed;
-
         _path.destination = _playerTransform.position;        
     }
 

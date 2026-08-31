@@ -6,10 +6,13 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int _intitialHealth = 100;
     [SerializeField] private HealthText _playerHealthUI;
+    [SerializeField] private bool _isPlayer = false;
+    [SerializeField] private int _score = 100;
 
     private int _currentHealth;
+    private ScoreManager _scoreManager;
 
-    [SerializeField] private bool _isPlayer = false;
+
 
     private void Awake()
     {
@@ -20,6 +23,8 @@ public class Health : MonoBehaviour
     }
     private void Start()
     {
+        _scoreManager = FindFirstObjectByType<ScoreManager>();
+
         if (_isPlayer && _playerHealthUI != null)
         {
             _playerHealthUI.ResetHealth(_intitialHealth);
@@ -48,7 +53,11 @@ public class Health : MonoBehaviour
         {
             if (_isPlayer)
             {
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene("MainMenu");
+            }
+            else
+            {
+                _scoreManager.AddScore(_score);
             }
             Die();
         }

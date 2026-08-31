@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -28,8 +29,7 @@ public class PlayerController : MonoBehaviour
         
         if (_quitAction.WasPressedThisFrame())
         {
-            Application.Quit();
-            Debug.Log("quit");
+            SceneManager.LoadScene("MainMenu");
         }   
     }
 

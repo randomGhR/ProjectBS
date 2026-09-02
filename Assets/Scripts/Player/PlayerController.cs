@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float _moveSpeed = 20f;
+    [SerializeField] private float _moveSpeed = 20f;
+   
     
-    Vector2 _moveInputValue;
+    private Vector2 _moveInputValue;
 
+    InputAction _quitAction;
     InputAction _moveAction;
     Rigidbody2D rb;
 
-    InputAction _quitAction;
 
     void Awake()
     {
@@ -48,4 +49,5 @@ public class PlayerController : MonoBehaviour
     {
         _moveInputValue = _moveAction.ReadValue<Vector2>();
     }
+
 }

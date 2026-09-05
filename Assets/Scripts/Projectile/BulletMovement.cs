@@ -53,7 +53,12 @@ public class BulletMovement : MonoBehaviour
 
     private RaycastHit2D GetRaycastForCollision()
     {
-        RaycastHit2D rayHit = Physics2D.Raycast(transform.position, _velocity, _velocity.magnitude, _collisionLayerMask);
+        RaycastHit2D rayHit = Physics2D.Raycast(
+            transform.position, 
+            _velocity, 
+            _velocity.magnitude, 
+            _collisionLayerMask);
+            
         return rayHit;
     }
 

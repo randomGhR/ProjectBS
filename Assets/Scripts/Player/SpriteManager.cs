@@ -6,6 +6,7 @@ public class SpriteManager : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private float _redDuration = 0.5f;
+    [SerializeField] private float _greenDuration = 0.8f;
 
     private void Awake()
     {
@@ -14,14 +15,19 @@ public class SpriteManager : MonoBehaviour
 
     public void TurnRed()
     {
-        StartCoroutine(RedCoroutine());
+        StartCoroutine(ChangeColorCoroutine(Color.red, _redDuration));
     }
 
-    private IEnumerator RedCoroutine()
+    public void TurnGreen()
     {
-        _spriteRenderer.color = Color.red;
+        StartCoroutine(ChangeColorCoroutine(Color.green, _greenDuration));
+    }
 
-        yield return new WaitForSeconds(_redDuration);
+    private IEnumerator ChangeColorCoroutine(Color color, float duration)
+    {
+        _spriteRenderer.color = color;
+
+        yield return new WaitForSeconds(duration);
 
         _spriteRenderer.color = Color.white;
     }

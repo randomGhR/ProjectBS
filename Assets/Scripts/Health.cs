@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(SpriteManager))]
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _intitialHealth = 100;
@@ -11,6 +10,7 @@ public class Health : MonoBehaviour
 
     private int _currentHealth;
     private ScoreManager _scoreManager;
+    private SpriteManager _spriteManager;
 
 
 
@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
         if (_isPlayer)
         {
             _currentHealth = _intitialHealth;
+            _spriteManager = GetComponent<SpriteManager>();
         }
     }
     private void Start()
@@ -32,7 +33,13 @@ public class Health : MonoBehaviour
         }
     }
 
-
+    private void Update()
+    {
+        if (_isPlayer && _playerHealthUI != null)
+        {
+            _playerHealthUI.UpdateHealth(_currentHealth);
+        }
+    }
     public int GetCurrentHealth()
     {
         return _currentHealth;
@@ -42,18 +49,16 @@ public class Health : MonoBehaviour
     {
         _currentHealth -= amount;
 
-        if (_isPlayer && _playerHealthUI != null)
+        if (_isPlayer)
         {
-            GetComponent<SpriteManager>().TurnRed();
-
-            _playerHealthUI.UpdateHealth(_currentHealth);
+            _spriteManager.TurnRed();
         }
 
         if (_currentHealth <= 0)
         {
             if (_isPlayer)
             {
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("GameOver");
             }
             else
             {
@@ -66,6 +71,7 @@ public class Health : MonoBehaviour
     public void AddHealth(int amount)
     {
         _currentHealth += amount;
+        _spriteManager.TurnGreen();
     }
 
     private void Die()

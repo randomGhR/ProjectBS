@@ -42,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Laser Sight
+    uniqueID: 1183131029
+    locked: 0
   - name: Obstacle
     uniqueID: 3951195495
     locked: 0

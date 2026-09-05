@@ -18,4 +18,6 @@ public class BulletDamageDealer : MonoBehaviour
             health.ReduceHealth(_currentDamageAmount);
         }
     }
+
+    
 }
